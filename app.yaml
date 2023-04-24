@@ -1,10 +1,11 @@
 runtime: php
 env: flex
 
-runtime_config: document_root: public
+runtime_config:
+    document_root: public
 
 # Ensure we skip ".env", which is only for local development
-skip_files: 
+skip_files:
     - .env
 
 automatic_scaling:
@@ -20,7 +21,7 @@ env_variables:
     # Put production environment variables here.
     APP_DEBUG: true
     APP_ENV: production
-    APP_KEY: ojWYMVbe2O/ZbM3HmBAylFguyyUbRprA23aT4F5QYIc=
-    APP_NAME: "GCP Inempreport"
+    APP_KEY: YOUR_APP_KEY
+    APP_NAME: "GCP App - CODE"
 
     LOG_LEVEL: debug
