@@ -1,11 +1,8 @@
-runtime: custom
+runtime: php74
 env: flex
 
 runtime_config:
     document_root: public
-    enable_stackdriver_integration: true
-    language: php
-    version: 8.1
 
 # Ensure we skip ".env", which is only for local development
 skip_files:
