@@ -1,4 +1,4 @@
-runtime: php
+runtime: php81
 env: flex
 
 runtime_config:
@@ -21,7 +21,7 @@ env_variables:
     # Put production environment variables here.
     APP_DEBUG: true
     APP_ENV: production
-    APP_KEY: YOUR_APP_KEY
-    APP_NAME: "GCP App - CODE"
+    APP_KEY: PVWtDcHLr8tcNWcrlvB9JV9bipV0gn5Lt9tOUYmCo/U=
+    APP_NAME: "GCP Inempreport"
 
     LOG_LEVEL: debug
