@@ -1,5 +1,6 @@
-runtime: php74
+runtime: custom
 env: flex
+service: php8-Inempreport
 
 runtime_config:
     document_root: public
