@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('savearrive','ArriveCheckController@SaveEmployeeCheckArrive')->name('savearrive');
+
+Route::post('saveleaveform','ArriveCheckController@SaveEmployeeLeaveform')->name('saveleaveform');
+
+Route::post('saveprogressreport','ProgressReportController@SaveProgressReport')->name('saveprogressreport');
