@@ -25,8 +25,8 @@ return [
     | services the application utilizes. Set this in your ".env" file.
     |
     */
-
-    'env' => env('APP_ENV', 'production'),
+    'env' => 'local',
+    // 'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', true),
+    'debug' => true,
 
     /*
     |--------------------------------------------------------------------------

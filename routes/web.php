@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/testdata',function(){
+    return "testdata";
+});
 Route::get('/send/email', 'EmailController@dailymail');
 
 Route::middleware(['auth','web'])->group(function () {
