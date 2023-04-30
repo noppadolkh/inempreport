@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,9 +15,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/getconfig',function(){
+    $value = config();
+    dd($value);
+});
 
-Route::get('/testdata',function(){
-    return "testdata";
+Route::get('/laravellog',function(){
+    #$logContents = Storage::get('logs/laravel.log');
+    $handle = fopen(storage_path('logs/laravel.log'), 'r');
+    if ($handle) {
+        $contents = fread($handle, filesize(storage_path('logs/laravel.log')));
+        $data = explode('"}',$contents);
+        $datamax = count($data) - 1;
+        $latestElements = array_slice($data, $datamax-3, $datamax);
+        $latestElements = array_reverse($latestElements);
+        foreach ($latestElements as $key => $value){
+            echo $value."<br><br>";
+        }
+        fclose($handle);
+    }
+    // dd($handle);
+    // fclose($handle);
+    
+    // if ($handle) {
+    //     while (($line = fgets($handle)) !== false) {
+    //         echo $line;
+    //     }
+    //     fclose($handle);
+    // }
+    // $logLines = explode("\n", $logContents);
+    // $latestMessage = end($logLines);
+    // dd($latestMessage);
 });
 Route::get('/send/email', 'EmailController@dailymail');
 
