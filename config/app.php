@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Inempreport'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     | services the application utilizes. Set this in your ".env" file.
     |
     */
-    'env' => 'local',
+    'env' => 'production',
     // 'env' => env('APP_ENV', 'production'),
 
     /*
