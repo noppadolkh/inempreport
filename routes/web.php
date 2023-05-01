@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Database\Cloudsql\DatabaseUnix;
 
 
 
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Storage;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('connectcloudsql',function(){
+    $conn = DatabaseUnix::initUnixDatabaseConnection();
+});
 
 Route::get('connectsql',function(){
     $servername = env('DB_HOST', '127.0.0.1');
