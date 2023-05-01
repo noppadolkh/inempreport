@@ -20,6 +20,9 @@ Route::get('connectsql',function(){
     $servername = env('DB_HOST', '127.0.0.1');
     $username = env('DB_USERNAME', 'forge');
     $password = env('DB_PASSWORD', '');
+    $database = env('DB_DATABASE', 'forge');
+    $dbsocket = env('DB_SOCKET', '');
+    $dbport = env('DB_PORT', '3306');
     echo($servername);
     echo "<br>";
     echo($username);
@@ -27,7 +30,7 @@ Route::get('connectsql',function(){
     echo($password);
     echo "<br>";
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password, $database, $dbport, $dbsocket);
 
     // Check connection
     if ($conn->connect_error) {
