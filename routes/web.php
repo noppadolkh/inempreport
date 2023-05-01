@@ -23,12 +23,13 @@ Route::get('connectsql',function(){
     $database = env('DB_DATABASE', 'forge');
     $dbsocket = env('DB_SOCKET', '');
     $dbport = env('DB_PORT', '3306');
-    echo($servername);
-    echo "<br>";
-    echo($username);
-    echo "<br>";
-    echo($password);
-    echo "<br>";
+    echo("server name : ".$servername."<br>");
+    echo("username : ".$username."<br>");
+    echo("password : ".$password."<br>");
+    echo("database : ".$database."<br>");
+    echo("dbsocket : ".$dbsocket."<br>");
+    echo("dbport : ".$dbport."<br>");
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database, $dbport, $dbsocket);
 
