@@ -17,10 +17,15 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('connectsql',function(){
-    $servername = "10.73.0.3";
-    $username = "root";
-    $password = "inemp021507047";
-
+    $servername = env('DB_HOST', '127.0.0.1');
+    $username = env('DB_USERNAME', 'forge');
+    $password = env('DB_PASSWORD', '');
+    echo($servername);
+    echo "<br>";
+    echo($username);
+    echo "<br>";
+    echo($password);
+    echo "<br>";
     // Create connection
     $conn = new mysqli($servername, $username, $password);
 
@@ -29,7 +34,7 @@ Route::get('connectsql',function(){
     die("Connection failed: " . $conn->connect_error);
     }
     echo "Connected successfully";
-    });
+});
 Route::get('connectlocalsql',function(){
     $servername = "127.0.0.1";
     $username = "root";
