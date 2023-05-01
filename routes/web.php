@@ -30,7 +30,7 @@ Route::get('connectsql',function(){
     }
     echo "Connected successfully";
     });
-Route::get('connectsql',function(){
+Route::get('connectlocalsql',function(){
     $servername = "127.0.0.1";
     $username = "root";
     $password = "inemp021507047";
