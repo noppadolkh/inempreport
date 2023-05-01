@@ -35,20 +35,20 @@ Route::get('connectsql',function(){
     }
     echo "Connected successfully";
 });
-Route::get('connectlocalsql',function(){
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "inemp021507047";
+// Route::get('connectlocalsql',function(){
+//     $servername = "127.0.0.1";
+//     $username = "root";
+//     $password = "inemp021507047";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password);
+//     // Create connection
+//     $conn = new mysqli($servername, $username, $password);
 
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-    echo "Connected successfully";
-});
+//     // Check connection
+//     if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+//     }
+//     echo "Connected successfully";
+// });
 Route::get('/getconfig',function(){
     $value = config();
     dd($value);
