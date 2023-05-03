@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Database\Cloudsql\DatabaseUnix;
 
 
 
@@ -16,32 +17,26 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+Route::get('connectcloudsql',function(){
+    $conn = DatabaseUnix::initUnixDatabaseConnection();
+});
+
 Route::get('connectsql',function(){
     $servername = env('DB_HOST', '127.0.0.1');
     $username = env('DB_USERNAME', 'forge');
     $password = env('DB_PASSWORD', '');
-    echo($servername);
-    echo "<br>";
-    echo($username);
-    echo "<br>";
-    echo($password);
-    echo "<br>";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password);
-
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-    echo "Connected successfully";
-    });
-Route::get('connectlocalsql',function(){
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "inemp021507047";
+    $database = env('DB_DATABASE', 'forge');
+    $dbsocket = env('DB_SOCKET', '');
+    $dbport = env('DB_PORT', '3306');
+    echo("server name : ".$servername."<br>");
+    echo("username : ".$username."<br>");
+    echo("password : ".$password."<br>");
+    echo("database : ".$database."<br>");
+    echo("dbsocket : ".$dbsocket."<br>");
+    echo("dbport : ".$dbport."<br>");
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password, $database, $dbport, $dbsocket);
 
     // Check connection
     if ($conn->connect_error) {
@@ -49,6 +44,20 @@ Route::get('connectlocalsql',function(){
     }
     echo "Connected successfully";
 });
+// Route::get('connectlocalsql',function(){
+//     $servername = "127.0.0.1";
+//     $username = "root";
+//     $password = "inemp021507047";
+
+//     // Create connection
+//     $conn = new mysqli($servername, $username, $password);
+
+//     // Check connection
+//     if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+//     }
+//     echo "Connected successfully";
+// });
 Route::get('/getconfig',function(){
     $value = config();
     dd($value);
