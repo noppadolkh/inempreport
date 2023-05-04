@@ -34,8 +34,8 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 RUN composer install --optimize-autoloader --no-dev
 
-RUN sed -i 's!ErrorLog ${APACHE_LOG_DIR}/error.log!ErrorLog /dev/stderr!' /etc/apache2/apache2.conf && \
-    sed -i 's!CustomLog ${APACHE_LOG_DIR}/access.log combined!CustomLog /dev/stdout combined!' /etc/apache2/apache2.conf
+# RUN sed -i 's!ErrorLog ${APACHE_LOG_DIR}/error.log!ErrorLog /dev/stderr!' /etc/apache2/apache2.conf && \
+#     sed -i 's!CustomLog ${APACHE_LOG_DIR}/access.log combined!CustomLog /dev/stdout combined!' /etc/apache2/apache2.conf
 
 EXPOSE 80
 
